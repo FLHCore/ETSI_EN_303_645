@@ -1,0 +1,146 @@
+import secrets
+import hashlib
+import time
+import os
+
+class IoTDeviceAuthenticator:
+    """
+    一個模擬 IoT 設備的認證管理器，遵循 ETSI EN 303 645 的 5.1 節規範。
+    """
+
+    # 5.1-5: 暴力破解防護機制參數
+    MAX_LOGIN_ATTEMPTS = 5
+    LOCKOUT_DURATION_SECONDS = 300  # 5 分鐘
+
+    def __init__(self, device_id: str, storage_path: str = "/tmp/iot_device_storage"):
+        """
+        初始化認證器。
+        :param device_id: 設備的唯一標識符。
+        :param storage_path: 用於儲存密碼雜湊和鹽值的路徑。
+        """
+        self.device_id = device_id
+        self.storage_file = os.path.join(storage_path, f"{device_id}_credentials.txt")
+        self.login_attempts = 0
+        self.last_attempt_time = 0
+        self.lockout_until = 0
+
+        if not os.path.exists(storage_path):
+            os.makedirs(storage_path)
+
+    def _hash_password(self, password: str, salt: bytes) -> bytes:
+        """
+        使用 PBKDF2-HMAC-SHA256 進行密碼雜湊。
+        這符合 5.1-3 的最佳實踐加密技術要求。
+        """
+        return hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
+
+    def _generate_unique_password(self) -> str:
+        """
+        產生一個唯一的、足夠隨機的初始密碼。
+        這符合 5.1-1 和 5.1-2 的要求，避免通用或可預測的密碼。
+        """
+        return secrets.token_urlsafe(12)
+
+    def initialize_device(self) -> str:
+        """
+        設備初始化過程。產生一個唯一的初始密碼並儲存其雜湊值。
+        這符合 5.1-1 的要求。
+        :return: 產生的唯一初始密碼，應透過安全方式提供給使用者。
+        """
+        if os.path.exists(self.storage_file):
+            raise RuntimeError("設備已被初始化。請使用 change_password 或 reset。")
+
+        initial_password = self._generate_unique_password()
+        salt = secrets.token_bytes(16)
+        hashed_password = self._hash_password(initial_password, salt)
+
+        # 5.4-1: 安全地儲存敏感安全參數 (此處為密碼雜湊和鹽值)
+        with open(self.storage_file, "wb") as f:
+            f.write(salt + hashed_password)
+
+        print(f"設備 {self.device_id} 初始化成功。")
+        return initial_password
+
+    def authenticate(self, password: str) -> bool:
+        """
+        驗證使用者提供的密碼。
+        包含暴力破解防護機制，符合 5.1-5 的要求。
+        """
+        current_time = time.time()
+
+        # 檢查帳戶是否被鎖定
+        if self.lockout_until > current_time:
+            print(f"帳戶已鎖定。請在 {int(self.lockout_until - current_time)} 秒後再試。")
+            return False
+
+        if not os.path.exists(self.storage_file):
+            print("錯誤：設備未初始化或憑證遺失。")
+            return False
+
+        with open(self.storage_file, "rb") as f:
+            contents = f.read()
+            salt = contents[:16]
+            stored_hash = contents[16:]
+
+        input_hash = self._hash_password(password, salt)
+
+        if secrets.compare_digest(input_hash, stored_hash):
+            # 認證成功，重置嘗試計數器
+            self.login_attempts = 0
+            self.last_attempt_time = 0
+            print("認證成功。")
+            return True
+        else:
+            # 認證失敗，處理暴力破解邏輯
+            self.login_attempts += 1
+            self.last_attempt_time = current_time
+            print(f"認證失敗。剩餘嘗試次數：{self.MAX_LOGIN_ATTEMPTS - self.login_attempts}")
+
+            if self.login_attempts >= self.MAX_LOGIN_ATTEMPTS:
+                self.lockout_until = current_time + self.LOCKOUT_DURATION_SECONDS
+                self.login_attempts = 0 # 重置計數器
+                print(f"嘗試次數過多，帳戶已鎖定 {self.LOCKOUT_DURATION_SECONDS} 秒。")
+
+            return False
+
+    def change_password(self, old_password: str, new_password: str) -> bool:
+        """
+        提供一個簡單的機制讓使用者更改密碼。
+        這符合 5.1-4 的要求。
+        """
+        if self.authenticate(old_password):
+            new_salt = secrets.token_bytes(16)
+            new_hashed_password = self._hash_password(new_password, new_salt)
+            with open(self.storage_file, "wb") as f:
+                f.write(new_salt + new_hashed_password)
+            print("密碼更改成功。")
+            return True
+        else:
+            print("舊密碼不正確，無法更改密碼。")
+            return False
+
+if __name__ == '__main__':
+    # --- 範例使用流程 ---
+    device_authenticator = IoTDeviceAuthenticator(device_id="my_smart_light_001")
+
+    # 1. 設備首次啟動時進行初始化 (符合 5.1-1)
+    # 在實際應用中，這個密碼會顯示在設備螢幕上、印在標籤上，或透過藍牙傳給配對的 App
+    try:
+        unique_password = device_authenticator.initialize_device()
+        print(f"請記錄您的唯一初始密碼: {unique_password}")
+    except RuntimeError as e:
+        print(e)
+        # 如果已初始化，我們假設使用者已知密碼，直接進入認證環節
+        unique_password = "user_knows_this_password" # 僅為演示
+
+    # 2. 使用者嘗試登入 (符合 5.1-3, 5.1-5)
+    print("\n--- 嘗試登入 ---")
+    device_authenticator.authenticate("wrong_password")
+    device_authenticator.authenticate(unique_password)
+
+    # 3. 使用者更改密碼 (符合 5.1-4)
+    print("\n--- 嘗試更改密碼 ---")
+    new_user_password = "MyNewSecurePassword123!"
+    if device_authenticator.change_password(unique_password, new_user_password):
+        print("現在請使用新密碼登入。")
+        device_authenticator.authenticate(new_user_password)
