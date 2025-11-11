@@ -123,3 +123,7 @@ CLS 基於 ETSI EN 303 645 標準，設計了四個層級（Tier），每個層�
 * **Provision 6-6:** 在消費者物聯網設備上儲存和處理的資料，或由消費者物聯網設備提供給關聯服務的資料...**應**（shall）僅限於為其收集或處理目的所必需的資料，並且一旦不再需要用於任何已識別的目的，則**應**（shall）將其刪除 。
 
 詳細規範說明請參考：[6 Data protection provisions for consumer IoT](docs/6_data_protection_provisions_example.md)
+
+---
+
+ETSI EN 303 645 文件翻譯導讀 [cyber_security_for_consumer_internet_of_things_baseline_requirements](docs/0_cyber_security_for_consumer_internet_of_things_baseline_requirements.md)
