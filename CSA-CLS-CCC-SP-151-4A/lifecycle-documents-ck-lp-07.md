@@ -61,3 +61,6 @@
     * **漏洞修復追蹤 (Remediation Tracking)**：
         * 如果 VA/PT 報告中發現了 High/Critical 漏洞，您必須同時提供「修復證明」或「緩解計畫」。
         * 評估人員可能會問：「這份報告顯示有 SQL Injection，請問你們修了嗎？」您需要出示對應的 JIRA Ticket 和修復後的複測報告 (Re-test Report)。
+
+---
+[回到 Lifecycle Documents](./lifecycle-documents.md)

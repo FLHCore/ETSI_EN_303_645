@@ -60,3 +60,6 @@
         * QA 隨機檢查 SBOM 上列出的某個套件版本（例如 `curl 7.68.0`）。
         * 登入設備執行 `curl --version`。
         * **預期結果**：版本號必須完全一致。如果設備上跑的是 7.80.0 但 SBOM 寫 7.68.0，代表清單未維護，這是不合規的。
+
+---
+[回到 Lifecycle Documents](./lifecycle-documents.md)

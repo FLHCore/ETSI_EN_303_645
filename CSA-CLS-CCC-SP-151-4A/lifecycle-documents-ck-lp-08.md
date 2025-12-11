@@ -60,3 +60,6 @@
     * **評分演練**：
         * 拿一個已知的歷史漏洞（例如 Log4j），請安全團隊成員試算 CVSS 分數。
         * 確認算出來的分數與 NVD 官方分數接近，證明團隊懂得如何使用 CVSS 標準。
+
+---
+[回到 Lifecycle Documents](./lifecycle-documents.md)

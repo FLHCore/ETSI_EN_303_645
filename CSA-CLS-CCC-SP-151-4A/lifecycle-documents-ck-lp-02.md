@@ -97,3 +97,6 @@
     * **Binary 檢查 (Checksec)**：
         * QA 或資安人員可以使用 `checksec.sh` 腳本來檢查編譯出來的韌體執行檔。
         * **預期結果**：RELRO, Canary, NX, PIE 欄位應顯示為綠色的 "Enabled"。
+
+---
+[回到 Lifecycle Documents](./lifecycle-documents.md)

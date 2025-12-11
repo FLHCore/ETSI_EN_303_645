@@ -59,3 +59,6 @@
 * **測試與驗證**：
     * **UI 檢查**：
         * QA 在測試 OTA 時，需確認後端設定的 Release Note 文字能完整顯示在前端 UI 上，且沒有亂碼或被截斷。
+
+---
+[回到 Lifecycle Documents](./lifecycle-documents.md)

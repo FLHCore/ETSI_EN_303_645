@@ -64,3 +64,6 @@
 * **測試與驗證**：
     * **CVE 狙擊測試**：
         * QA 隨機挑選 SBOM 中的一個組件（例如 `dnsmasq 2.78`），去 CVE 資料庫查詢該版本是否有已知漏洞。如果有，代表 SCA 工具失效或開發者忽略了更新。
+
+---
+[回到 Lifecycle Documents](./lifecycle-documents.md)

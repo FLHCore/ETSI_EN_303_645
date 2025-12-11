@@ -64,8 +64,10 @@
     * **靜態掃描報告**：
         * 使用工具掃描原始碼中的 "TODO", "FIXME", "HACK" 等關鍵字，證明沒有遺留臨時程式碼。
 
-* **測試與驗證**：
-    * **滲透測試工具掃描**：
-        * 使用 **Firmwalker** 或類似工具掃描解包後的 Firmware，尋找是否有被遺忘的憑證檔案 (如 `.pem`, `.key`) 或敏感字串。
-    * **權限提權測試**：
-        * 假設駭客取得了一個低權限 Shell (如 `nobody` 或 `www-data`)，測試他是否能讀取 `/etc/shadow` 或寫入 `/etc/config/`。強化的系統應能阻止這類橫向移動。
+* **測試與驗證**：    * **滲透測試工具掃描**：        * 使用 **Firmwalker** 或類似工具掃描解包後的 Firmware，尋找是否有被遺忘的憑證檔案 (如 `.pem`, `.key`) 或敏感字串。    * **權限提權測試**：        * 假設駭客取得了一個低權限 Shell (如 `nobody` 或 `www-data`)，測試他是否能讀取 `/etc/shadow` 或寫入 `/etc/config/`。強化的系統應能阻止這類橫向移動。
+
+
+
+---
+
+[回到 Lifecycle Documents](./lifecycle-documents.md)
