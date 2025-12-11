@@ -44,6 +44,7 @@ CCC 保留要求進一步澄清、更多支持證據的權利，並且如果所�
 - [5.1 – 禁用通用預設密碼 (NO UNIVERSAL DEFAULT PASSWORDS)](./5.1-no-universal-default-passwords.md)
 - [5.2 – 實施一種管理漏洞報告的機制 (IMPLEMENT A MEANS TO MANAGE REPORTS OF VULNERABILITIES)](./5.2-implement-a-means-to-manage-reports-of-vulnerabilities.md)
 - [5.3 – 保持軟體更新 (KEEP SOFTWARE UPDATED)](./5.3-keep-software-updated.md)
+- [5.4 – 安全儲存安全參數 (SECURELY STORE SECURITY PARAMETERS)](./5.4-securely-store-security-parameters.md)
 
 ---
 
