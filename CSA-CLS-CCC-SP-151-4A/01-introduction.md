@@ -51,6 +51,8 @@ CCC 保留要求進一步澄清、更多支持證據的權利，並且如果所�
 - [5.9 – 使系統具有恢復能力以應對中斷 (MAKE SYSTEMS RESILIENT TO OUTAGES)](./5.9-make-systems-resilient-to-outages-provision-5.9-2.md)
 - [5.11 – 使消費者易於刪除個人資料 (MAKE IT EASY FOR CONSUMERS TO DELETE PERSONAL DATA)](./5.11-make-it-easy-for-consumers-to-delete-personal-data-provision-5.11-1.md)
 - [5.13 – 驗證輸入資料 (VALIDATE INPUT DATA)](./5.13-validate-input-data-provision-5.13-1.md)
+- [6.1 – 資料保護條款 (DATA PROTECTION PROVISIONS FOR CONSUMER)](./6.1-data-protection-provisions-for-consumer.md)
+- [生命週期文件 (Lifecycle Documents CK-LP)](./lifecycle-documents.md)
 
 ---
 
