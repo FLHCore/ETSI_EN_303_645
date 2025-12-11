@@ -45,6 +45,8 @@ CCC 保留要求進一步澄清、更多支持證據的權利，並且如果所�
 - [5.2 – 實施一種管理漏洞報告的機制 (IMPLEMENT A MEANS TO MANAGE REPORTS OF VULNERABILITIES)](./5.2-implement-a-means-to-manage-reports-of-vulnerabilities.md)
 - [5.3 – 保持軟體更新 (KEEP SOFTWARE UPDATED)](./5.3-keep-software-updated.md)
 - [5.4 – 安全儲存安全參數 (SECURELY STORE SECURITY PARAMETERS)](./5.4-securely-store-security-parameters.md)
+- [5.5 – 安全通訊 (COMMUNICATE SECURELY)](./5.5-communicate-securely.md)
+- [5.6 – 最小化暴露的攻擊面 (MINIMISE EXPOSED ATTACK SURFACES)](./5.6-minimise-exposed-attack-surfaces.md)
 
 ---
 
