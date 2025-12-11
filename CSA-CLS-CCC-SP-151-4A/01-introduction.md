@@ -48,6 +48,9 @@ CCC 保留要求進一步澄清、更多支持證據的權利，並且如果所�
 - [5.5 – 安全通訊 (COMMUNICATE SECURELY)](./5.5-communicate-securely.md)
 - [5.6 – 最小化暴露的攻擊面 (MINIMISE EXPOSED ATTACK SURFACES)](./5.6-minimise-exposed-attack-surfaces.md)
 - [5.8 – 確保個人資料安全 (ENSURE THAT PERSONAL DATA IS PROTECTED)](./5.8-ensure-that-personal-data-is-protected.md)
+- [5.9 – 使系統具有恢復能力以應對中斷 (MAKE SYSTEMS RESILIENT TO OUTAGES)](./5.9-make-systems-resilient-to-outages-provision-5.9-2.md)
+- [5.11 – 使消費者易於刪除個人資料 (MAKE IT EASY FOR CONSUMERS TO DELETE PERSONAL DATA)](./5.11-make-it-easy-for-consumers-to-delete-personal-data-provision-5.11-1.md)
+- [5.13 – 驗證輸入資料 (VALIDATE INPUT DATA)](./5.13-validate-input-data-provision-5.13-1.md)
 
 ---
 
