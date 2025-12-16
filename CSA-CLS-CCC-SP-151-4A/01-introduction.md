@@ -41,4 +41,28 @@ CCC 保留要求進一步澄清、更多支持證據的權利，並且如果所�
 
 ---
 
-[5.1 – 禁用通用預設密碼 (NO UNIVERSAL DEFAULT PASSWORDS)](./5.1-no-universal-default-passwords.md)
+- [5.1 – 禁用通用預設密碼 (NO UNIVERSAL DEFAULT PASSWORDS)](./5.1-no-universal-default-passwords.md)
+- [5.2 – 實施一種管理漏洞報告的機制 (IMPLEMENT A MEANS TO MANAGE REPORTS OF VULNERABILITIES)](./5.2-implement-a-means-to-manage-reports-of-vulnerabilities.md)
+- [5.3 – 保持軟體更新 (KEEP SOFTWARE UPDATED)](./5.3-keep-software-updated.md)
+- [5.4 – 安全儲存安全參數 (SECURELY STORE SECURITY PARAMETERS)](./5.4-securely-store-security-parameters.md)
+- [5.5 – 安全通訊 (COMMUNICATE SECURELY)](./5.5-communicate-securely.md)
+- [5.6 – 最小化暴露的攻擊面 (MINIMISE EXPOSED ATTACK SURFACES)](./5.6-minimise-exposed-attack-surfaces.md)
+- [5.8 – 確保個人資料安全 (ENSURE THAT PERSONAL DATA IS PROTECTED)](./5.8-ensure-that-personal-data-is-protected.md)
+- [5.9 – 使系統具有恢復能力以應對中斷 (MAKE SYSTEMS RESILIENT TO OUTAGES)](./5.9-make-systems-resilient-to-outages-provision-5.9-2.md)
+- [5.11 – 使消費者易於刪除個人資料 (MAKE IT EASY FOR CONSUMERS TO DELETE PERSONAL DATA)](./5.11-make-it-easy-for-consumers-to-delete-personal-data-provision-5.11-1.md)
+- [5.13 – 驗證輸入資料 (VALIDATE INPUT DATA)](./5.13-validate-input-data-provision-5.13-1.md)
+- [6.1 – 資料保護條款 (DATA PROTECTION PROVISIONS FOR CONSUMER)](./6.1-data-protection-provisions-for-consumer.md)
+- [生命週期文件 (Lifecycle Documents CK-LP)](./lifecycle-documents.md)
+
+---
+
+### Table 1 - 各 CLS(IoT) 家庭閘道器等級的強制性條款 (Mandatory Provisions for each CLS(IoT) Home Gateway Level)
+
+| CLS(IoT) Home Gateway Levels | 評估活動 (Assessment Activities) | 格式 (Format) | 強制性條款 (Mandatory Provisions) |
+| :--- | :--- | :--- | :--- |
+| **Level 1** | 安全基準 (Security Baseline) | 開發商的符合性聲明 (Developer's declaration of conformity)。 | 5.1-1, 5.1-2, 5.1-3, 5.1-4, 5.1-5, 5.2-1, 5.3-1, 7.3-1, 5.3-2, 5.3-3, 7.3-4, 5.3-6, 5.3-7, 7.3-7, 5.3-8, 5.3-9, 5.3-10, 5.3-13, 5.3-16 |
+| **Level 2** | 遵守國際標準 (Adherence to International Standards) | 遵守 Level 1 條款。 | **Level 1 條款**，以及：<br>5.4-1, 7.4-1, 5.4-2, 7.4-2, 5.4-3, 7.4-3, 5.4-4, 5.5-1, 5.5-5, 7.5-6, 5.5-7, 7.5-7, 5.5-8, 5.6-1, 7.6-1, 5.6-2, 7.6-2, 7.6-3, 5.6-4, 7.6-4, 5.6-5, 7.6-9, 5.8-2, 5.8-3, 5.9-2, 5.11-1 |
+| **Level 3** | 生命週期要求與軟體二進位分析 (Lifecycle Requirements and Software Binary Analysis) | 基於開發商符合性聲明的生命週期要求。<br>基於測試實驗室獨立評估的軟體二進位分析。 | 5.13-1, 6.1, 6.2, 6.3, 6.5<br>**Level 1 條款**<br>**Level 2 條款**<br>**CK-LP** (生命週期文件) |
+| **Level 4** | 滲透測試 (Penetration Testing) | 測試實驗室總結測試執行與結果的報告。 | **Level 1 條款**<br>**Level 2 條款**<br>**CK-LP** (生命週期文件)<br>*(包含上述所有條款範圍的滲透測試)* |
+
+---
